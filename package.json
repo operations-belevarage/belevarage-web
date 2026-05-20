@@ -1,0 +1,29 @@
+{
+  "name": "belevarage-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx next dev",
+    "build": "npx next build",
+    "start": "npx next start",
+    "lint": "npx next lint",
+    "db:seed": "npx tsx prisma/seed.ts",
+    "db:migrate": "npx prisma migrate dev",
+    "db:generate": "npx prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.8.0",
+    "bcryptjs": "^2.4.3",
+    "next": "^15.3.1",
+    "prisma": "^7.8.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.14.1",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "typescript": "^5.8.3"
+  }
+}

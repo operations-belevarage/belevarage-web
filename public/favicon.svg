@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#811E18" rx="4"/>
+  <!-- Lotus-inspired mandala -->
+  <g transform="translate(16, 16)">
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#C8862A" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="7" fill="#C8862A"/>
+    <circle cx="0" cy="0" r="4" fill="#FAF6F0"/>
+    <!-- Petals -->
+    <ellipse cx="0" cy="-8" rx="2" ry="4" fill="#D4AF37"/>
+    <ellipse cx="7" cy="-4" rx="2" ry="4" fill="#D4AF37" transform="rotate(60)"/>
+    <ellipse cx="7" cy="4" rx="2" ry="4" fill="#D4AF37" transform="rotate(120)"/>
+  </g>
+</svg>

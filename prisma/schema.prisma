@@ -1,0 +1,184 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// -----------------------------------------------------------------------------
+// ADMIN USERS
+// -----------------------------------------------------------------------------
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  password  String   // Hashed password
+  role      Role     @default(ADMIN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+}
+
+// -----------------------------------------------------------------------------
+// REGISTRATIONS (Forms from Public Site)
+// -----------------------------------------------------------------------------
+
+model Business {
+  id             String   @id @default(uuid())
+  businessName   String
+  ownerName      String
+  businessTypes  String[] // Array of strings (e.g. Retail, Handicraft)
+  city           String
+  mobile         String
+  email          String
+  description    String?
+  monthlyRevenue String?
+  digitalPresence String?
+  status         RegistrationStatus @default(PENDING)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Farmer {
+  id               String   @id @default(uuid())
+  fullName         String
+  location         String
+  cropTypes        String[]
+  monthlyVolume    String?
+  mobile           String
+  pickupPoint      String?
+  cooperative      String?
+  status           RegistrationStatus @default(PENDING)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Healthcare {
+  id               String   @id @default(uuid())
+  clinicName       String
+  practitionerName String
+  specialisation   String
+  city             String
+  mobile           String
+  email            String
+  communitySize    String?
+  eventsInterested String[]
+  status           RegistrationStatus @default(PENDING)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model CommunityMember {
+  id           String   @id @default(uuid())
+  fullName     String
+  mobile       String
+  email        String
+  city         String
+  interests    String[]
+  source       String?
+  status       RegistrationStatus @default(PENDING)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Enquiry {
+  id           String   @id @default(uuid())
+  name         String
+  email        String
+  category     String   // general, partnership, press, etc. OR Investor organisation
+  message      String
+  phone        String?
+  // Investor specific
+  organisation String?
+  designation  String?
+  fundType     String?
+  ticketSize   String?
+  
+  status       EnquiryStatus @default(UNREAD)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum RegistrationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum EnquiryStatus {
+  UNREAD
+  READ
+  RESPONDED
+}
+
+// -----------------------------------------------------------------------------
+// CONTENT MANAGEMENT (Blog, Press, Careers)
+// -----------------------------------------------------------------------------
+
+model Post {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  title     String
+  excerpt   String
+  content   String   // Markdown or HTML
+  category  String
+  published Boolean  @default(false)
+  authorId  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PressRelease {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  title     String
+  date      DateTime
+  content   String   // Markdown or HTML
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Career {
+  id           String   @id @default(uuid())
+  slug         String   @unique
+  title        String
+  department   String
+  location     String
+  type         String   // Full-time, Part-time, Contract
+  description  String   // Markdown or HTML
+  requirements String   // Markdown or HTML
+  isActive     Boolean  @default(true)
+  applications Application[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Application {
+  id        String   @id @default(uuid())
+  careerId  String
+  career    Career   @relation(fields: [careerId], references: [id])
+  name      String
+  email     String
+  mobile    String
+  resumeUrl String?  // Link to uploaded resume
+  message   String?
+  status    ApplicationStatus @default(NEW)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum ApplicationStatus {
+  NEW
+  REVIEWING
+  INTERVIEWING
+  REJECTED
+  HIRED
+}
