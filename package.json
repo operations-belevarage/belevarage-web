@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "npx next dev",
-    "build": "npx next build",
+    "build": "npx prisma generate && npx next build",
     "start": "npx next start",
     "lint": "npx next lint",
+    "postinstall": "npx prisma generate",
     "db:seed": "npx tsx prisma/seed.ts",
     "db:migrate": "npx prisma migrate dev",
     "db:generate": "npx prisma generate"
