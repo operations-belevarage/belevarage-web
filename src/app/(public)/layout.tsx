@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { Navbar } from "../components/layout/Navbar";
-import { Footer } from "../components/layout/Footer";
-import { CookieConsent } from "../components/layout/CookieConsent";
+// Use the @/ tsconfig path alias so this works regardless of how deep the file
+// is nested. The previous relative paths (../components/...) accidentally
+// resolved correctly on Windows (case-insensitive FS + bundler tolerance)
+// but failed on Linux during the Amplify build.
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { CookieConsent } from "@/components/layout/CookieConsent";
 
 export const metadata: Metadata = {
   title: "बेलवरेज BELEVARAGE — Where Community Meets Commerce",
