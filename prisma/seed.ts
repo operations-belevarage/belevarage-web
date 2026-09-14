@@ -9,7 +9,7 @@ async function main() {
   
   const admin = await prisma.user.upsert({
     where: { email: 'admin@belevarage.com' },
-    update: {},
+    update: { role: 'SUPER_ADMIN' },
     create: {
       email: 'admin@belevarage.com',
       name: 'Super Admin',
@@ -19,7 +19,23 @@ async function main() {
   });
 
   console.log('Created admin user:', admin.email);
-  console.log('Default password: admin123');
+
+  // Second super admin: Dr. Pavan
+  const drPavanPassword = await bcrypt.hash('pavan123', 10);
+
+  const drPavan = await prisma.user.upsert({
+    where: { email: 'dr_pavan@belevarage.com' },
+    update: { role: 'SUPER_ADMIN' },
+    create: {
+      email: 'dr_pavan@belevarage.com',
+      name: 'Dr. Pavan',
+      password: drPavanPassword,
+      role: 'SUPER_ADMIN',
+    },
+  });
+
+  console.log('Created super admin user:', drPavan.email);
+  console.log('Default passwords -> admin@belevarage.com: admin123, dr_pavan@belevarage.com: pavan123');
 }
 
 main()
