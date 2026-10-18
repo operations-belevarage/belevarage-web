@@ -647,6 +647,13 @@ img { max-width: 100%; height: auto; display: block; }
 }
 @media(min-width:1100px) { .navbar__links { display: flex; } }
 
+/* GenX Tech highlighted nav item */
+.navbar__link--accent {
+  color: var(--turmeric-warm);
+  font-weight: 700;
+}
+.navbar__link--accent:hover { color: var(--saffron-gold); }
+
 /* HAMBURGER */
 .hamburger {
   display: flex; 
@@ -768,6 +775,15 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 3rem; 
 }
 @media(min-width:768px) { .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+@media(min-width:768px) { .footer__grid--5 { grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr; } }
+
+/* Footer CTA links that point to the live Bandh platform */
+.footer__link--cta { color: var(--saffron-gold); font-weight: 600; }
+.footer__link--cta:hover { color: var(--ivory); }
+
+/* "Who we are" two-column block */
+.who-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+@media(min-width:900px) { .who-grid { grid-template-columns: 1.1fr 0.9fr; } }
 .footer__brand-name {
   font-family: var(--font-display); 
   font-size: 1.8rem; 
