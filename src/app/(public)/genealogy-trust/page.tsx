@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
+import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Genealogy Trust — BELEVARAGE",
+  title: "Genealogy Trust — Belevarage",
   description: "Build your digital family tree and trade with people your community trusts.",
 };
 
 export default function GenealogyTrustPage() {
   return (
     <div className="min-h-screen bg-[#F5F5DC]">
-      <section className="section section--crimson">
-        <div className="container">
+      <section className="section section--crimson" style={{ position: "relative", overflow: "hidden", paddingTop: 150 }}>
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: `url(${IMAGES.festiveDiyas})`, backgroundSize: "cover", backgroundPosition: "center", opacity: 0.22 }} />
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg, rgba(92,20,16,0.93) 0%, rgba(129,30,24,0.82) 50%, rgba(129,30,24,0.6) 100%)" }} />
+        <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div className="hero__content">
             <span className="kicker kicker--light">Trust Layer</span>
             <h1 className="hero__title">Genealogy Trust Network</h1>
             <p className="hero__subtitle">
-              Trade with people your network trusts. Build your digital family tree. 
+              Trade with people your network trusts. Build your digital family tree.
               Every verified relationship strengthens the community.
             </p>
           </div>
@@ -33,7 +36,7 @@ export default function GenealogyTrustPage() {
                 to your cousin or neighbor, trust is inherent.
               </p>
               <div className="callout">
-                &ldquo;Like Kutumb for community connection — but extended into trusted, relationship-driven commerce.&rdquo;
+                &ldquo;Like a trusted family circle for your community — extended into relationship-driven commerce.&rdquo;
               </div>
             </div>
             <div className="card" style={{ background: 'white' }}>

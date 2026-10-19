@@ -66,12 +66,12 @@ export default function InvestorsPage() {
           </div>
           <div className="grid grid-3">
             {[
-              { icon: "📈", title: "Massive TAM", desc: "Addressable market of $1T+ in Indian community commerce" },
-              { icon: "🎯", title: "First Mover", desc: "Unique event-driven model with no direct competition" },
-              { icon: "🤝", title: "Impact + Returns", desc: "1.9M livelihoods by Year 5 alongside strong unit economics" },
-              { icon: "🌐", title: "Scalable Model", desc: "Replicable across 100+ Indian communities, then globally" },
-              { icon: "🤖", title: "AI Advantage", desc: "Proprietary AI for community matchmaking and event optimization" },
-              { icon: "📊", title: "Clear Metrics", desc: "55-106 person-days per event, measurable impact and revenue" },
+              { icon: "📈", title: "Large Market", desc: "A vast, underserved opportunity in Indian community commerce" },
+              { icon: "🎯", title: "Differentiated", desc: "A distinctive event-driven model built around community trust" },
+              { icon: "🤝", title: "Impact + Returns", desc: "Livelihood creation alongside a path to strong unit economics" },
+              { icon: "🌐", title: "Scalable Model", desc: "Replicable across Indian communities, then globally" },
+              { icon: "🤖", title: "AI Advantage", desc: "In-house AI for community matchmaking and event optimisation" },
+              { icon: "📊", title: "Measurable Impact", desc: "Community impact and revenue you can track, event by event" },
             ].map((highlight, i) => (
               <div key={i} className="card" style={{ textAlign: 'center' }}>
                 <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: '1rem' }}>{highlight.icon}</span>
@@ -87,33 +87,19 @@ export default function InvestorsPage() {
         <div className="container">
           <div className="grid grid-2" style={{ maxWidth: 1100, margin: '0 auto', alignItems: 'start' }}>
             <div>
-              <span className="kicker">Financial Projections</span>
-              <h2 className="mb-3">Growth Trajectory</h2>
-              <div style={{ marginTop: '2rem' }}>
-                {[
-                  { label: "Year 1", metric: "10 Communities", gmV: "₹50 Cr GMV" },
-                  { label: "Year 3", metric: "50 Communities", gmV: "₹500 Cr GMV" },
-                  { label: "Year 5", metric: "100+ Communities", gmV: "₹25,000 Cr GMV" },
-                ].map((year, i) => (
-                  <div key={i} style={{ 
-                    display: 'flex', 
-                    justifyContent: 'space-between', 
-                    alignItems: 'center',
-                    padding: '1rem 0',
-                    borderBottom: '1px solid var(--stone-grey)',
-                  }}>
-                    <div>
-                      <h4 style={{ color: 'var(--crimson)' }}>{year.label}</h4>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--charcoal)' }}>{year.metric}</p>
-                    </div>
-                    <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--forest-teal)' }}>
-                      {year.gmV}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="callout" style={{ marginTop: '2rem' }}>
-                Seeking Series A funding to scale from pilot to 100+ communities across India.
+              <span className="kicker">Our Plan</span>
+              <h2 className="mb-3">Building for Scale</h2>
+              <p style={{ color: 'var(--charcoal)', marginTop: '1rem', marginBottom: '1.5rem' }}>
+                We&apos;re scaling LCCIA Bandh from pilot communities toward a nationwide, event-driven
+                socio-commerce network — growing revenue as each new community comes online.
+              </p>
+              <ul style={{ color: 'var(--charcoal)', paddingLeft: '1.25rem', display: 'grid', gap: '0.6rem', marginBottom: '1.5rem' }}>
+                <li>Proven in pilot communities, now expanding region by region</li>
+                <li>Revenue that grows with every event and every onboarded supplier</li>
+                <li>A capital-efficient model built for sustainable, long-term growth</li>
+              </ul>
+              <div className="callout">
+                We&apos;re seeking Series A funding to scale from pilot to communities across India.
               </div>
             </div>
 
@@ -253,15 +239,13 @@ export default function InvestorsPage() {
           </div>
           <div className="grid grid-4">
             {[
-              { percent: "40%", use: "Technology & AI", desc: "Platform development and AI capabilities" },
-              { percent: "25%", use: "Market Expansion", desc: "Launch in 100+ communities" },
-              { percent: "20%", use: "Team Building", desc: "Hiring key talent across functions" },
-              { percent: "15%", use: "Operations", desc: "Working capital and operational costs" },
+              { use: "Technology & AI", desc: "Platform development and AI capabilities" },
+              { use: "Market Expansion", desc: "Launching across new communities" },
+              { use: "Team Building", desc: "Hiring key talent across functions" },
+              { use: "Operations", desc: "Working capital and operational costs" },
             ].map((item, i) => (
               <div key={i} style={{ textAlign: 'center', padding: '1.5rem' }}>
-                <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--saffron-gold)', marginBottom: '0.5rem' }}>
-                  {item.percent}
-                </div>
+                <div style={{ fontSize: '2rem', color: 'var(--saffron-gold)', marginBottom: '0.75rem' }}>◆</div>
                 <h3 style={{ color: 'var(--ivory)', marginBottom: '0.5rem' }}>{item.use}</h3>
                 <p style={{ color: 'rgba(250,246,240,0.7)', fontSize: '0.9rem' }}>{item.desc}</p>
               </div>

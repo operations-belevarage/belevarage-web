@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "How It Works — BELEVARAGE",
-  description: "Learn how BELEVARAGE connects communities through events, trust, and commerce.",
+  title: "How It Works — Belevarage",
+  description: "Learn how LCCIA Bandh connects communities through events, trust, and commerce.",
 };
 
 const STEPS = [
@@ -37,21 +38,25 @@ const ACTORS = [
     role: "Community Members",
     actions: ["Discover local events", "Connect with verified sellers", "Build trust networks", "Access quality local products"],
     color: "var(--forest-teal)",
+    image: IMAGES.festiveDiyas,
   },
   {
     role: "Business Owners",
     actions: ["Host community events", "Reach local customers", "Build loyal following", "Grow through trust"],
     color: "var(--crimson)",
+    image: IMAGES.bizOwner,
   },
   {
     role: "Farmers",
     actions: ["Pre-sell harvests", "Eliminate middlemen", "Reduce wastage", "Get fair prices"],
     color: "var(--saffron-gold)",
+    image: IMAGES.farmer,
   },
   {
     role: "Healthcare Providers",
     actions: ["Host health camps", "Reach communities", "Build patient trust", "Provide preventive care"],
     color: "var(--navy)",
+    image: IMAGES.healthcare,
   },
 ];
 
@@ -124,7 +129,9 @@ export default function HowItWorksPage() {
           </div>
           <div className="grid grid-2">
             {ACTORS.map((actor, i) => (
-              <div key={i} className="card">
+              <div key={i} className="card" style={{ padding: 0, overflow: 'hidden' }}>
+                <img src={actor.image} alt={actor.role} style={{ width: '100%', height: 170, objectFit: 'cover' }} loading="lazy" />
+                <div style={{ padding: '1.75rem' }}>
                 <h3 style={{ 
                   color: actor.color, 
                   marginBottom: '1rem',
@@ -147,6 +154,7 @@ export default function HowItWorksPage() {
                     </li>
                   ))}
                 </ul>
+                </div>
               </div>
             ))}
           </div>

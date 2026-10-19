@@ -73,7 +73,7 @@ export default function AboutPage() {
               and unable to compete with funded giants.
             </p>
             <p style={{ marginBottom: '1.5rem', color: 'var(--charcoal)' }}>
-              Simultaneously, we saw farmers losing 30-40% of their produce to wastage, healthcare remaining inaccessible 
+              Simultaneously, we saw farmers losing much of their produce to wastage, healthcare remaining inaccessible
               in rural areas, and cultural artisans abandoning their crafts for urban jobs.
             </p>
             <p style={{ color: 'var(--charcoal)' }}>
@@ -84,28 +84,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Impact Stats */}
-      <section className="section section--deep">
-        <div className="container">
-          <div className="section-header">
-            <span className="kicker kicker--light">Our Ambition</span>
-            <h2 style={{ color: 'var(--ivory)' }}>Impact by Numbers</h2>
-          </div>
-          <div className="grid grid-4">
-            {[
-              { number: "100+", label: "Launch Communities" },
-              { number: "1.9M", label: "Livelihoods by Year 5" },
-              { number: "₹25K Cr", label: "GMV Target Year 5" },
-              { number: "30%", label: "Farmer Income Increase" },
-            ].map((stat, i) => (
-              <div key={i} className="stat">
-                <div className="stat__number">{stat.number}</div>
-                <div className="stat__label">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

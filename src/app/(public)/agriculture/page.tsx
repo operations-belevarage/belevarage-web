@@ -72,7 +72,7 @@ export default function AgriculturePage() {
             <span className="kicker kicker--light">For Farmers</span>
             <h1 className="hero__title">Register as a Farmer</h1>
             <p className="hero__subtitle">
-              Pre-sell your produce before harvest. Eliminate wastage. Get fair prices directly from consumers.
+              Pre-sell your produce before harvest. Reduce wastage. Get fair prices directly from consumers.
             </p>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function AgriculturePage() {
             <div>
               <h2 className="mb-3">The Problem We Solve</h2>
               <div className="callout">
-                Indian farmers face 30-40% produce wastage and lose 50%+ of value to middlemen. 
+                Indian farmers lose much of their produce to wastage and a heavy share of their value to middlemen.
                 BELEVARAGE changes this with &quot;Book from Home, Pick on the Way&quot; — pre-selling before harvest.
               </div>
               <div style={{ marginTop: '2rem' }}>
@@ -94,7 +94,7 @@ export default function AgriculturePage() {
                   <li style={{ marginBottom: '0.75rem' }}>List upcoming harvests as events</li>
                   <li style={{ marginBottom: '0.75rem' }}>Community members book in advance</li>
                   <li style={{ marginBottom: '0.75rem' }}>Harvest knowing exact demand</li>
-                  <li>Zero wastage, fair income, direct relationships</li>
+                  <li>Less wastage, fair income, direct relationships</li>
                 </ol>
               </div>
             </div>
@@ -231,30 +231,6 @@ export default function AgriculturePage() {
                 </button>
               </form>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--cream">
-        <div className="container">
-          <div className="section-header">
-            <span className="kicker">Success Stories</span>
-            <h2>How Farmers Benefit</h2>
-          </div>
-          <div className="grid grid-3">
-            {[
-              { name: "Anand P.", location: "Maharashtra", quote: "For the first time, I know my customers before I harvest. Zero wastage this season." },
-              { name: "Lakshmi D.", location: "Tamil Nadu", quote: "Direct income from consumers means 40% more earnings. No middlemen cutting into my profits." },
-              { name: "Ramesh K.", location: "Karnataka", quote: "My farm is now a community destination. People come for the experience, not just produce." },
-            ].map((story, i) => (
-              <div key={i} className="card">
-                <p style={{ fontStyle: 'italic', marginBottom: '1rem', color: 'var(--charcoal)' }}>
-                  &ldquo;{story.quote}&rdquo;
-                </p>
-                <p style={{ fontWeight: 600 }}>{story.name}</p>
-                <p style={{ fontSize: '0.85rem', color: 'var(--stone-grey)' }}>{story.location}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

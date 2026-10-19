@@ -48,7 +48,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside className={`admin-sidebar ${sidebarOpen ? 'admin-sidebar--open' : ''}`}>
         <div className="admin-sidebar__header">
           <Link href="/admin" style={{ textDecoration: 'none' }}>
-            <div className="admin-sidebar__logo">बेलवरेज Admin</div>
+            <div className="admin-sidebar__logo">Belevarage Admin</div>
             <div className="admin-sidebar__tagline">BELEVARAGE Portal</div>
           </Link>
         </div>

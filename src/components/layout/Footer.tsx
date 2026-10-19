@@ -16,13 +16,12 @@ const COMPANY = [
   { label: "Our Impact", href: "/impact" },
   { label: "Investors", href: "/investors" },
   { label: "Careers", href: "/careers" },
-  { label: "Press & Media", href: "/press" },
-  { label: "Blog", href: "/blog" },
 ];
 const LEGAL = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Use", href: "/terms" },
   { label: "Cookie Policy", href: "/cookies" },
+  { label: "Image Credits", href: "/credits" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -32,12 +31,12 @@ export function Footer() {
       <div className="container">
         <div className="footer__grid footer__grid--5">
           <div>
-            <div className="footer__brand-name">बेलवरेज BELEVARAGE</div>
-            <div className="footer__tagline">The team behind LCCIA Bandh</div>
+            <div className="footer__brand-name">BELEVARAGE</div>
+            <div className="footer__tagline">The company behind LCCIA Bandh</div>
             <p className="footer__desc">
-              Belevarage builds and operates the LCCIA Bandh Platform — India&apos;s
-              event-driven socio-commerce network, powered by community trust and
-              our GenX Tech AI. Heritage values, next-generation technology.
+              LCCIA Bandh is a Belevarage platform — India&apos;s event-driven socio-commerce
+              network, powered by community trust and our in-house AI, Shivo. We build it,
+              take it to market, and grow it. Heritage values, next-generation technology.
             </p>
             <div style={{ marginTop: "1.5rem", display: "flex", gap: "1rem", alignItems: "center" }}>
               <span style={{ fontSize: "1.5rem" }}>🇮🇳</span>
@@ -102,8 +101,8 @@ export function Footer() {
           </div>
         </div>
         <div className="footer__bottom">
-          <span>© {new Date().getFullYear()} BELEVARAGE. सत्यमेव जयते</span>
-          <span>Builders of LCCIA Bandh • Powered by GenX Tech</span>
+          <span>© {new Date().getFullYear()} Belevarage. All rights reserved.</span>
+          <span>LCCIA Bandh is a Belevarage platform • Powered by Shivo</span>
         </div>
       </div>
     </footer>
