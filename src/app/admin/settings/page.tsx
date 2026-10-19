@@ -11,6 +11,43 @@ export default function SettingsPage() {
     maintenanceMode: false,
   });
 
+  // Change-password form state
+  const [pw, setPw] = useState({ current: '', next: '', confirm: '' });
+  const [pwState, setPwState] = useState<{ type: 'idle' | 'ok' | 'err'; msg: string; loading: boolean }>({
+    type: 'idle',
+    msg: '',
+    loading: false,
+  });
+
+  const changePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (pw.next !== pw.confirm) {
+      setPwState({ type: 'err', msg: 'New password and confirmation do not match.', loading: false });
+      return;
+    }
+    if (pw.next.length < 8) {
+      setPwState({ type: 'err', msg: 'New password must be at least 8 characters.', loading: false });
+      return;
+    }
+    setPwState({ type: 'idle', msg: '', loading: true });
+    try {
+      const res = await fetch('/api/auth/change-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ currentPassword: pw.current, newPassword: pw.next }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setPwState({ type: 'ok', msg: 'Password updated successfully.', loading: false });
+        setPw({ current: '', next: '', confirm: '' });
+      } else {
+        setPwState({ type: 'err', msg: data.error || 'Could not change password.', loading: false });
+      }
+    } catch {
+      setPwState({ type: 'err', msg: 'Something went wrong. Please try again.', loading: false });
+    }
+  };
+
   return (
     <>
       <div className="admin-header">
@@ -20,7 +57,7 @@ export default function SettingsPage() {
       <div className="grid grid-2">
         <div className="admin-card">
           <h3 style={{ marginBottom: '1.5rem' }}>General Settings</h3>
-          
+
           <div className="form-group">
             <label className="form-label">Site Name</label>
             <input
@@ -62,39 +99,64 @@ export default function SettingsPage() {
               Enable Enquiries
             </label>
           </div>
-
-          <div className="form-group">
-            <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <input
-                type="checkbox"
-                checked={settings.maintenanceMode}
-                onChange={(e) => setSettings({ ...settings, maintenanceMode: e.target.checked })}
-              />
-              Maintenance Mode
-            </label>
-          </div>
-
-          <button className="btn btn-primary">Save Changes</button>
         </div>
 
         <div className="admin-card">
-          <h3 style={{ marginBottom: '1.5rem' }}>System Information</h3>
-          <div style={{ marginBottom: '1rem' }}>
-            <p style={{ fontSize: '0.85rem', color: 'var(--stone-grey)' }}>Version</p>
-            <p>1.0.0</p>
-          </div>
-          <div style={{ marginBottom: '1rem' }}>
-            <p style={{ fontSize: '0.85rem', color: 'var(--stone-grey)' }}>Environment</p>
-            <p>Development</p>
-          </div>
-          <div style={{ marginBottom: '1rem' }}>
-            <p style={{ fontSize: '0.85rem', color: 'var(--stone-grey)' }}>Database</p>
-            <p>PostgreSQL</p>
-          </div>
-          <div>
-            <p style={{ fontSize: '0.85rem', color: 'var(--stone-grey)' }}>Last Updated</p>
-            <p>April 27, 2026</p>
-          </div>
+          <h3 style={{ marginBottom: '1.5rem' }}>Change Password</h3>
+          <form onSubmit={changePassword}>
+            <div className="form-group">
+              <label className="form-label">Current Password</label>
+              <input
+                type="password"
+                className="form-input"
+                value={pw.current}
+                onChange={(e) => setPw({ ...pw, current: e.target.value })}
+                autoComplete="current-password"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">New Password</label>
+              <input
+                type="password"
+                className="form-input"
+                value={pw.next}
+                onChange={(e) => setPw({ ...pw, next: e.target.value })}
+                autoComplete="new-password"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Confirm New Password</label>
+              <input
+                type="password"
+                className="form-input"
+                value={pw.confirm}
+                onChange={(e) => setPw({ ...pw, confirm: e.target.value })}
+                autoComplete="new-password"
+                required
+              />
+            </div>
+
+            {pwState.msg && (
+              <div
+                style={{
+                  background: pwState.type === 'ok' ? '#e8f5e9' : '#ffebee',
+                  color: pwState.type === 'ok' ? '#2e7d32' : '#c62828',
+                  padding: '0.75rem 1rem',
+                  borderRadius: 'var(--radius-md)',
+                  marginBottom: '1rem',
+                  fontSize: '0.9rem',
+                }}
+              >
+                {pwState.msg}
+              </div>
+            )}
+
+            <button type="submit" className="btn btn-primary" disabled={pwState.loading}>
+              {pwState.loading ? 'Updating…' : 'Update Password'}
+            </button>
+          </form>
         </div>
       </div>
     </>

@@ -20,6 +20,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // The login screen must not show the admin shell (menu/sidebar).
+  if (pathname === "/admin/login") {
+    return <>{children}</>;
+  }
+
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+    } catch {
+      // ignore network errors; we still send the user to the login screen
+    }
+    window.location.href = "/admin/login";
+  };
+
   return (
     <div className="admin-layout">
       {/* Mobile Sidebar Toggle */}
@@ -95,22 +109,24 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           >
             ← View Website
           </Link>
-          <Link 
-            href="/admin/login"
+          <button
+            onClick={handleLogout}
             style={{
               display: 'block',
+              width: '100%',
               padding: '0.75rem',
               textAlign: 'center',
+              background: 'none',
               border: '1px solid rgba(200,134,42,0.5)',
               borderRadius: '4px',
               color: 'var(--ivory)',
-              textDecoration: 'none',
               fontSize: '0.9rem',
+              cursor: 'pointer',
               transition: 'all 0.3s',
             }}
           >
             Log Out
-          </Link>
+          </button>
         </div>
       </aside>
 
