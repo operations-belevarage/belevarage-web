@@ -10,7 +10,7 @@ export const IMAGES = {
   festiveDiyas: "https://live.staticflickr.com/6049/6270321975_d1b0fb450c_b.jpg",   // Diwali diyas, girl
   diyaFlame: "https://live.staticflickr.com/5125/5339901677_8f1bfc891b_b.jpg",      // single diya flame
   bananaMarket: "https://live.staticflickr.com/2312/2279204706_551b4900d9_b.jpg",   // women at market stall
-  garlandMarket: "https://live.staticflickr.com/1001/843953060_7c4921d6f0_b.jpg",   // marigold garland market
+  teamIndia: "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=1400&q=80", // Indian startup team in a modern office (Unsplash licence, no attribution)
   vegMarket: "https://live.staticflickr.com/6240/6272158368_465c9e3403_b.jpg",      // street vegetable vendor
   spiceMarket: "https://live.staticflickr.com/7033/6684415299_a43c974160_b.jpg",    // spice bins
   classicalDance: "https://live.staticflickr.com/5235/13973992868_b704002640_b.jpg",// Bharatanatyam dancer
@@ -37,7 +37,6 @@ export const IMAGE_CREDITS: ImageCredit[] = [
   { title: "Diwali diyas", creator: "Partha Sarathi Sahana", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", source: "https://www.flickr.com/photos/22853208@N05/6270321975" },
   { title: "Diya flame", creator: "Rohit Chhiber", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", source: "https://www.flickr.com/photos/44898393@N08/5339901677" },
   { title: "Market stall", creator: "mckaysavage", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", source: "https://www.flickr.com/photos/56796376@N00/2279204706" },
-  { title: "Marigold garland market", creator: "mckaysavage", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", source: "https://www.flickr.com/photos/56796376@N00/843953060" },
   { title: "Street vegetable vendor", creator: "Arian Zwegers", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", source: "https://www.flickr.com/photos/arianzwegers/6272158368" },
   { title: "Indian spices", creator: "gajman", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", source: "https://www.flickr.com/photos/33223059@N05/6684415299" },
   { title: "Bharatanatyam dancer", creator: "Pabak Sarkar", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/", source: "https://www.flickr.com/photos/122393034@N04/13973992868" },

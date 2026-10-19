@@ -210,7 +210,7 @@ export default function HomePage() {
               <Link href="/about" className="btn btn-primary">Our Story →</Link>
             </div>
             <div className="indian-border" style={{ borderRadius: 12, overflow: "hidden" }}>
-              <img src={IMAGES.garlandMarket} alt="A bustling Indian community marketplace served by LCCIA Bandh" style={{ width: "100%", height: "100%", objectFit: "cover", minHeight: 280 }} loading="lazy" />
+              <img src={IMAGES.teamIndia} alt="The Belevarage team building and running the LCCIA Bandh platform" style={{ width: "100%", height: "100%", objectFit: "cover", minHeight: 280 }} loading="lazy" />
             </div>
           </div>
         </div>
