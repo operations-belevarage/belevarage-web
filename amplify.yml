@@ -8,6 +8,13 @@ frontend:
         - npm ci
     build:
       commands:
+        # Amplify exposes console env vars at build time only. Persist the server
+        # runtime config into .env.production so the Next.js SSR server can read it
+        # (Prisma needs DATABASE_URL; NextAuth needs its secret/url). Written to a
+        # file, never printed, and the file stays inside the private compute.
+        - printf 'DATABASE_URL=%s\n' "$DATABASE_URL" >> .env.production
+        - printf 'NEXTAUTH_SECRET=%s\n' "$NEXTAUTH_SECRET" >> .env.production
+        - printf 'NEXTAUTH_URL=%s\n' "$NEXTAUTH_URL" >> .env.production
         - npm run build
   artifacts:
     baseDirectory: .next
