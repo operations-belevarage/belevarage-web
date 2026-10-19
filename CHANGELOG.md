@@ -1,5 +1,20 @@
 # belevarage-web — Changelog
 
+## 2026-10-19 — Header restyled to match live belevarage.com (new build)
+
+Per founder: adopted the current live site's header treatment.
+- Light cream frosted bar (rgba(250,246,240,.85) + blur, matching live) in both the top and
+  scrolled states, replacing the maroon bar; faint crimson bottom border, subtle shadow on scroll.
+- Logo: pulled the live site's gold ornate "B" monogram (static/logo_2_B-removebg-preview.png →
+  public/images/belevarage-live-logo.png) and the "BELEVARAGE" gold serif wordmark (saffron-gold,
+  Cormorant Garamond).
+- Nav: dark maroon (crimson) links on the cream bar (AA-legible); GenX Tech is bold crimson;
+  gold "Sign up" button kept; crimson hamburger on mobile.
+- Kept the CLEANED nav (Solutions grouping incl. Genealogy; no Impact/Investors/Blog) — did NOT
+  copy the live site's removed items.
+Verified on :5190 (home + /genx-tech, desktop + mobile, top + scrolled): correct logo/wordmark,
+legible nav, no overlap, no horizontal scroll, no console/server errors.
+
 ## 2026-10-19 — Removed ALL fabricated/unverifiable numeric claims (new build)
 
 Founder override ("no fake claims at all"): reworded uncited stats qualitatively and

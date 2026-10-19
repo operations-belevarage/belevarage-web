@@ -36,7 +36,7 @@ export function Navbar() {
         <div className="container navbar__inner">
           <Link href="/" className="navbar__logo" aria-label="Belevarage home">
             <span className="navbar__logo-badge">
-              <img src="/images/belevarage-mark.png" alt="" width={46} height={46} />
+              <img src="/images/belevarage-live-logo.png" alt="" width={42} height={46} />
             </span>
             <span className="navbar__logo-text">BELEVARAGE</span>
           </Link>

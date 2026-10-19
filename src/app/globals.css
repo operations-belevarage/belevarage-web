@@ -559,14 +559,20 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 1rem 0; 
   transition: all var(--transition);
 }
-.navbar--transparent { 
-  background: transparent; 
+/* Light cream frosted bar, matching the live belevarage.com header. */
+.navbar--transparent {
+  background: rgba(250,246,240,0.85);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid rgba(129,30,24,0.1);
 }
-.navbar--solid { 
-  background: var(--deep-crimson); 
-  box-shadow: 0 4px 30px rgba(26,15,13,0.25); 
-  padding: 0.75rem 0;
-  border-bottom: 3px solid var(--saffron-gold);
+.navbar--solid {
+  background: rgba(250,246,240,0.96);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: 0 4px 20px rgba(26,15,13,0.08);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(129,30,24,0.14);
 }
 .navbar__inner {
   display: flex;
@@ -582,27 +588,25 @@ img { max-width: 100%; height: auto; display: block; }
   flex-shrink: 0;
 }
 .navbar__logo-badge {
-  width: 46px;
   height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-/* Logo mark sits directly on the maroon (transparent background) with a soft
-   drop-shadow for depth. drop-shadow follows the gold "B" shape, not a box. */
+/* Gold "B" monogram (transparent asset) sits on the light cream bar. */
 .navbar__logo-badge img {
-  width: 46px;
   height: 46px;
+  width: auto;
   display: block;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 1px 2px rgba(129,30,24,0.2));
 }
 .navbar__logo-wordmark { display: flex; flex-direction: column; line-height: 1.05; }
 .navbar__logo-text {
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--ivory);
+  color: var(--saffron-gold);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -622,9 +626,9 @@ img { max-width: 100%; height: auto; display: block; }
   flex-wrap: nowrap;
 }
 .navbar__link {
-  color: rgba(250,246,240,0.9);
+  color: var(--crimson);
   font-size: 0.74rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.55rem 0.7rem;
   border-radius: 4px;
   transition: all var(--transition);
@@ -645,14 +649,14 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--saffron-gold);
   transition: width 0.3s;
 }
-.navbar__link:hover { 
-  color: var(--ivory); 
-  background: rgba(250,246,240,0.05);
+.navbar__link:hover {
+  color: var(--deep-crimson);
+  background: rgba(129,30,24,0.06);
 }
 .navbar__link:hover::after {
   width: 60%;
 }
-.navbar__link--ext { color: var(--saffron-gold); }
+.navbar__link--ext { color: var(--crimson); }
 .navbar__cta {
   background: var(--saffron-gold) !important;
   color: var(--deep-crimson) !important;
@@ -673,12 +677,12 @@ img { max-width: 100%; height: auto; display: block; }
 }
 @media(min-width:1024px) { .navbar__links { display: flex; } }
 
-/* GenX Tech highlighted nav item */
+/* GenX Tech highlighted nav item (bold, legible on the cream bar) */
 .navbar__link--accent {
-  color: var(--turmeric-warm);
-  font-weight: 700;
+  color: var(--crimson);
+  font-weight: 800;
 }
-.navbar__link--accent:hover { color: var(--saffron-gold); }
+.navbar__link--accent:hover { color: var(--deep-crimson); }
 
 /* Solutions dropdown */
 .navbar__has-dropdown { position: relative; }
@@ -754,11 +758,10 @@ img { max-width: 100%; height: auto; display: block; }
 .hamburger span {
   width: 26px;
   height: 2px;
-  background: var(--ivory);
+  background: var(--crimson);
   transition: all var(--transition);
   border-radius: 2px;
 }
-.navbar--transparent .hamburger span { box-shadow: 0 0 3px rgba(0,0,0,0.4); }
 @media(min-width:1024px) { .hamburger { display: none; } }
 
 /* MOBILE MENU */
