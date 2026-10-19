@@ -88,7 +88,7 @@ const AUDIENCES: Audience[] = [
       "Handle enquiries and bookings without the back-and-forth",
       "Grow steadily through word of mouth that travels online",
     ],
-    image: IMAGES.handloomRug,
+    image: IMAGES.serviceProvider,
   },
 ];
 

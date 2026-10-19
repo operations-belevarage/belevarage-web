@@ -30,7 +30,7 @@ const USE_CASES: UseCase[] = [
     problem: "Much produce is lost to wastage, and middlemen take a heavy cut of the value",
     solution: "Book from Home, Pick on the Way — pre-sell before you harvest",
     outcome: "Confirmed demand, direct income, far less waste",
-    image: IMAGES.spiceMarket,
+    image: IMAGES.harvest,
   },
   {
     icon: "heart",
